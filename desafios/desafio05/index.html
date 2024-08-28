@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 5</title>
+    <style>
+        button#botao {
+            width: 150px;
+            height: 65px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de medidas</h1>
+    <button onclick="conv()" id="botao">Converter</button>
+    <p>Clique no botão acima para iniciar.</p>
+    <div id="res"></div>
+    <script>
+        function conv() {
+            var metro = window.prompt('Digite uma distância em metros (m)');
+            metro = parseFloat(metro.replace(',', '.')); // Substituir vírgula por ponto e converter para número
+            var res = window.document.getElementById('res');
+            
+            var Km = metro / 1000;
+            var Hm = metro / 100;
+            var Dam = metro / 10;
+            var dm = metro * 10;
+            var cm = metro * 100;
+            var mm = metro * 1000;
+            
+            res.innerHTML = `<h2>A distância de ${metro} metros, corresponde a...</h2>\n
+                             <p>${Km.toFixed(3).replace('.', ',')} quilômetros (Km)</p>
+                             <p>${Hm.toFixed(3).replace('.', ',')} hectômetros (Hm)</p>
+                             <p>${Dam.toFixed(3).replace('.', ',')} decâmetros (Dam)</p>
+                             <p>${dm.toFixed(3).replace('.', ',')} decímetros (dm)</p>
+                             <p>${cm.toFixed(3).replace('.', ',')} centímetros (cm)</p>
+                             <p>${mm.toFixed(3).replace('.', ',')} milímetros (mm)</p>`;
+        }
+    </script>
+</body>
+</html>

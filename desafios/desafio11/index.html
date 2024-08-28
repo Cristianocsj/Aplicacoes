@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 11</title>
+    <style>
+        button{
+            width: 100px;
+            height: 65px;
+        }
+        div{
+            margin-top: 10px;
+        }
+        mark#verde{
+            background-color: rgb(32, 189, 32);
+        }
+        mark#vermelho{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ano Bissexto</h1>
+    <button onclick="clicar()">Verificar</button>
+    <div id="res">Informe um ano para saber se ele é bissexto</div>
+    <script>
+        function clicar(){
+            var ano = window.prompt('Qual ano você quer verificar?  ')
+            res = document.getElementById('res')
+            if (ano % 4 == 0 && ano % 100 && ano % 400){
+                res.innerHTML = `<h2>Analisando o ano de ${ano}</h2>
+                                <p>O ano de ${ano} <mark id="verde">É BISSEXTO</mark>✅</p>`
+            } else{
+                res.innerHTML = `<h2>Analisando o ano de ${ano}</h2>
+                                <p>O ano de ${ano} <mark id="vermelho">NÃO É BISSEXTO</mark>❌</p>`
+            }
+        }
+    </script>
+</body>
+</html>

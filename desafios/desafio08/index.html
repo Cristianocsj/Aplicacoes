@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 08</title>
+    <style>
+        button {
+            width: 150px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcular Desconto</h1>
+    <button onclick="desc()">Desconto de 10%</button>
+    <div id="res"><p>Clique no botão para iniciar</p></div>
+
+    <script>
+        function desc() {
+            var prod = window.prompt('Qual é o produto que você está comprando? ');
+
+            // Verificar se o usuário clicou em Cancelar
+            if (prod === null) {
+                return;
+            }
+
+            var preco = window.prompt(`Qual é o preço desse ${prod}`);
+
+            // Verificar se o usuário clicou em Cancelar
+            if (preco === null) {
+                return;
+            }
+
+            // Converter para números
+            preco = Number(preco);
+            var desc = (10 / 100) * preco;
+            var novoVal = preco - desc;
+
+            var res = document.getElementById('res');
+            res.innerHTML = `<h2>Calculando desconto de 10% para ${prod}</h2>
+                            <p>O preço original era ${preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>
+                            <p>Você acaba de ganhar ${desc.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} de desconto (-10%).</p>
+                            <p>No fim, você vai pagar ${novoVal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} no produto ${prod}</p>`;
+        }
+    </script>
+</body>
+</html>

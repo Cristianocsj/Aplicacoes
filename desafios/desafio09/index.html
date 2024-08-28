@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 09</title>
+    <style>
+        button {
+            width: 150px;
+            height: 65px;
+        }
+        div{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste Salarial</h1>
+    <button onclick="reajustar()">Reajustar Salário</button>
+    <div id="res">Clique no botão acima para iniciar.</div>
+    <script>
+        function reajustar() {
+            var nome = window.prompt('Qual o nome do funcionário? ');
+            if (nome === null) {
+                return;
+            }
+
+            var sal = window.prompt(`Qual é o salário de ${nome}?`);
+            if (sal === null) {
+                return;
+            }
+            sal = Number(sal);
+
+            var porct = window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`);
+            if (porct === null) {
+                return;
+            }
+            porct = Number(porct);
+            var res = document.getElementById('res');
+
+            var aumento = (porct / 100) * sal;
+            var novoSal = sal + aumento;
+
+            res.innerHTML = `<h2>${nome} recebeu um aumento salarial</h2>
+                            <p>O salário atual era ${sal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                            <p>Com um aumento de ${porct}%, o salário vai aumentar ${aumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} no próximo mês.</p>
+                            <p>E a partir daí, ${nome} vai passar a ganhar ${novoSal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}.</p>`;
+        }
+    </script>
+</body>
+</html>

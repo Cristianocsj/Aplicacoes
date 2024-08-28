@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 13</title>
+    <style>
+        button {
+            width: 125px;
+            height: 65px;
+        }
+        div {
+            margin-top: 10px;
+        }
+        mark#vermelho {
+            background-color: rgb(196, 43, 43);
+        }
+        mark#amarelo {
+            background-color: rgb(164, 164, 42);
+        }
+        mark#verde {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <button onclick="avaliar()">Entrar com as notas</button>
+    <div id="res">Clique no botão acima para informar as notas do aluno.</div>
+    <script>
+        function avaliar() {
+            var nome = window.prompt('Qual o nome do aluno?');
+            var primeiraN = window.prompt(`Primeira nota de ${nome}:`);
+            var segundaN = window.prompt(`Segunda nota de ${nome}`);
+            primeiraN = Number(primeiraN.replace(',', '.'));
+            segundaN = Number(segundaN.replace(',', '.'));
+            var media = (primeiraN + segundaN) / 2;
+            var res = document.getElementById('res');
+
+            if (media < 3) {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}</h2>
+                            <p>
+                                Com as notas de ${primeiraN} e ${segundaN}, a <strong>média é ${media.toFixed(2).replace('.', ',')}</strong>
+                            </p>
+                            <p>
+                                Com média abaixo de 3,0, o aluno está <mark id="vermelho"><strong>REPROVADO</strong></mark>
+                            </p>`;
+            } else if (media >= 3 && media < 6) {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}</h2>
+                            <p>
+                                Com as notas de ${primeiraN} e ${segundaN}, a <strong>média é ${media.toFixed(2).replace('.', ',')}</strong>
+                            </p>
+                            <p>
+                                Com média entre de 3,0 e 6,0, o aluno está em <mark id="amarelo"><strong>RECUPERAÇÃO</strong></mark>
+                            </p>`;
+            } else {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}</h2>
+                            <p>
+                                Com as notas de ${primeiraN} e ${segundaN}, a <strong>média é ${media.toFixed(2).replace('.', ',')}</strong>
+                            </p>
+                            <p>
+                                Com média acima de 6,0, o aluno está em <mark id="verde"><strong>APROVADO</strong></mark>
+                            </p>`;
+            }
+        }
+    </script>
+</body>
+</html>

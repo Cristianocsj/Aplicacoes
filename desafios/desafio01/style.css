@@ -1,0 +1,15 @@
+div{
+    background-color: rgb(224, 224, 224);
+    display: inline-block;
+    margin-right: 1px;
+    text-align: center;
+    line-height: 75px;
+    cursor: pointer;
+    width: 100px;
+    height: 75px;
+    border: rgb(37, 35, 35) solid;
+
+}
+div:hover{
+    background-color: rgb(66, 64, 63);
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 12</title>
+    <style>
+         button {
+            width: 100px;
+            height: 65px;
+        }
+        div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>O Preço Mudou</h1>
+    <button onclick="verificar()">Verificar</button>
+    <div class="res">Clique no botão acima para analisar a mudança de preço</div>
+    <script>
+        function verificar() {
+            var precoInicial = window.prompt('Qual era o preço anterior do produto?');
+            var precoAtual = window.prompt('Qual é o preço atual do produto? ');
+            precoInicial = Number(precoInicial);
+            precoAtual = Number(precoAtual);
+            var res = document.querySelector('.res');
+            
+            if (precoAtual > precoInicial) {
+                var dif = precoAtual - precoInicial;
+                var variacao = (dif / precoInicial) * 100;
+                
+                res.innerHTML = `<h2>Analisando os valores informados</h2>
+                            <p>
+                                O produto custava ${precoInicial.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} e agora custa ${precoAtual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            </p>
+                            <p>
+                                Hoje o produto está mais caro.
+                            </p>
+                            <p>
+                                O preço subiu ${dif.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} em relação ao preço anterior.
+                            </p>
+                            <p>
+                                Uma variação de ${variacao.toFixed(2)}% para cima
+                            </p>`;
+            } else {
+                var dif = precoInicial - precoAtual;
+                var variacao = (dif / precoInicial) * 100;
+
+                res.innerHTML = `<h2>Analisando os valores informados</h2>
+                            <p>
+                                O produto custava ${precoInicial.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} e agora custa ${precoAtual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            </p>
+                            <p>
+                                Hoje o produto está mais barato.
+                            </p>
+                            <p>
+                                O preço caiu ${dif.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} em relação ao preço anterior.
+                            </p>
+                            <p>
+                                Uma variação de ${variacao.toFixed(2)}% para baixo
+                            </p>`;
+            }
+        }             
+    </script>
+</body>
+</html>

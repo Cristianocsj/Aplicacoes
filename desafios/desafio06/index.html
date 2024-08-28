@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 6</title>
+    <style>
+        button {
+            width: 150px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <button onclick="converter()"><strong>Converter</strong></button>
+    <p>Clique no botão acima para iniciar.</p>
+    <div id="res"></div>
+
+    <script>
+        function converter() {
+            var temp = window.prompt('Digite uma temperatura em Celsius: ');
+            temp = Number(temp);
+
+            if (isNaN(temp)) {
+                alert('Por favor, insira um número válido para a temperatura.');
+                return;
+            }
+
+            var K = temp + 273.15;
+            var F = 9/5 * temp + 32;
+
+
+            var res = document.getElementById('res');
+            res.innerHTML = `<h2>A temperatura de <strong>${temp.toFixed(1).replace('.', ',')}</strong> Celsius, corresponde a...</h2>
+                            <p><strong>${K.toFixed(2)}</strong> Kelvin</p>
+                            <p><strong>${F.toFixed(2)}</strong> Fahrenheit</p>`;
+        }
+    </script>
+</body>
+</html>

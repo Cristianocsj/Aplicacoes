@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 155px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor R$ &rarr; U$</h1>
+    <button onclick="conv()">Converter</button>
+    <p>Clique no botão acima para iniciar.</p>
+    <div id="res"></div>
+    <script>
+        function conv(){
+            var qnt = window.prompt('Quantos R$ você tem na carteira? ')
+            qnt = Number(qnt.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}))
+            var res = document.getElementById('res')
+            var taxacao = 5.5
+            var emDolar = qnt/taxacao
+            res.innerHTML = `<h2>Você tem aproximadamente U$ ${emDolar.toFixed(2)}</h2>`
+        }
+    </script>
+</body>
+</html>
